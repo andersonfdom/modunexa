@@ -1,0 +1,22 @@
+# Python
+backend/.venv/
+backend/.env
+backend/.pytest_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/htmlcov/
+**/__pycache__/
+*.py[cod]
+
+# React/Vite
+frontend/node_modules/
+frontend/dist/
+frontend/.env.local
+frontend/.env.*.local
+
+# IDE e sistema
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
