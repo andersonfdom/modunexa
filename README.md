@@ -1,189 +1,481 @@
-# ModuNexa
+# 🪵 ModuNexa
 
-Plataforma full stack inteligente para gestão de marcenarias.
+> Plataforma full stack para gestão inteligente de marcenarias, integrando processos comerciais, operacionais e produtivos em uma única solução.
 
-A ModuNexa está sendo desenvolvida para apoiar processos comerciais, operacionais e produtivos de marcenarias, integrando gestão de clientes, orçamentos, contratos, produção, documentos e recursos de Inteligência Artificial.
+![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Python](https://img.shields.io/badge/Python-3.13-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-009688)
+![React](https://img.shields.io/badge/React-Frontend-61DAFB)
+![License](https://img.shields.io/badge/license-a%20definir-lightgrey)
 
-## Arquitetura
+---
+
+## 📌 Sobre o projeto
+
+A **ModuNexa** é uma plataforma full stack criada para apoiar a transformação digital de marcenarias e empresas de móveis planejados.
+
+O objetivo é centralizar processos que normalmente ficam distribuídos entre planilhas, documentos, sistemas isolados e controles manuais.
+
+A plataforma está sendo projetada para integrar:
+
+- gestão de clientes;
+- elaboração de orçamentos;
+- ambientes e projetos;
+- materiais e tabelas de preços;
+- contratos;
+- CRM comercial;
+- acompanhamento da produção;
+- cronogramas;
+- documentos e arquivos;
+- automação de processos;
+- recursos de Inteligência Artificial.
+
+Além de solucionar um problema de negócio real, o projeto é utilizado para aplicar conceitos modernos de **Backend Engineering, desenvolvimento Full Stack e IA aplicada a software**.
+
+---
+
+## 🎯 Problema que a ModuNexa pretende resolver
+
+Uma marcenaria pode precisar administrar diferentes informações durante o ciclo de um projeto:
+
+```text
+Cliente
+   ↓
+Orçamento
+   ↓
+Negociação
+   ↓
+Contrato
+   ↓
+Projeto
+   ↓
+Compra de materiais
+   ↓
+Produção
+   ↓
+Entrega
+   ↓
+Montagem
+   ↓
+Finalização
+```
+
+Quando essas informações estão distribuídas entre planilhas, PDFs, mensagens e controles manuais, aumentam as chances de retrabalho, inconsistências e perda de informações.
+
+A ModuNexa pretende centralizar esse fluxo e utilizar Inteligência Artificial como apoio às atividades que envolvem análise de dados e documentos.
+
+---
+
+## 🏗️ Arquitetura do projeto
+
+O projeto utiliza uma estrutura de **monorepo**, mantendo backend e frontend no mesmo repositório.
 
 ```text
 modunexa/
+│
 ├── backend/
+│   ├── database/
+│   │   └── modunexa.sql
+│   │
 │   └── modunexa-api/
-│       └── Python + FastAPI
+│       ├── src/
+│       │   └── modunexa/
+│       │       ├── core/
+│       │       ├── modules/
+│       │       └── main.py
+│       │
+│       ├── tests/
+│       ├── pyproject.toml
+│       └── uv.lock
 │
 ├── frontend/
-│   └── React
+│   └── ...
 │
 ├── .editorconfig
 ├── .gitignore
 └── README.md
+```
 
-Backend
+---
 
-O backend está sendo desenvolvido com:
+## ⚙️ Backend
 
-Python 3.13
-FastAPI
-Uvicorn
-Pydantic
-uv
-OpenAPI / Swagger
+A API está sendo desenvolvida utilizando **Python 3.13 e FastAPI**.
 
-Tecnologias previstas:
+### Tecnologias atuais
 
-PostgreSQL
-SQLAlchemy 2
-Alembic
-Pytest
-Ruff
-Mypy
-Docker
-JWT / OAuth2
-pgvector
-Inteligência Artificial
-RAG
-Frontend
+| Tecnologia | Finalidade |
+|---|---|
+| Python 3.13 | Linguagem principal do backend |
+| FastAPI | Desenvolvimento da API REST |
+| Uvicorn | Servidor ASGI |
+| Pydantic | Validação e tipagem de dados |
+| uv | Gerenciamento de ambiente e dependências |
+| OpenAPI | Especificação da API |
+| Swagger UI | Documentação interativa |
 
-O frontend será desenvolvido com React.
+### Tecnologias previstas
 
-A camada frontend consumirá a API REST da ModuNexa e será responsável pelas interfaces de:
+Durante a evolução do backend serão incorporadas:
 
-clientes
-orçamentos
-materiais
-contratos
-CRM
-produção
-cronograma
-documentos
-recursos de IA
-Recursos planejados
+- PostgreSQL;
+- SQLAlchemy 2;
+- Alembic;
+- Pydantic Settings;
+- Pytest;
+- Ruff;
+- Mypy;
+- autenticação JWT/OAuth2;
+- Docker;
+- GitHub Actions;
+- pgvector;
+- integração com modelos de IA;
+- embeddings;
+- RAG.
 
-A plataforma será composta por módulos como:
+---
 
-gestão de marcenarias
-usuários e autenticação
-cadastro de clientes
-cadastro de ambientes
-categorias e materiais
-geração de orçamentos
-regras de cálculo
-contratos
-CRM comercial
-gestão de produção
-cronograma
-upload de arquivos
-importação de planilhas
-processamento de PDFs
-Inteligência Artificial
-RAG e busca semântica
-Inteligência Artificial
+## ⚛️ Frontend
 
-A ModuNexa será preparada para recursos como:
+O frontend será desenvolvido utilizando **React** e consumirá a API REST disponibilizada pelo backend.
 
-análise de contratos
-interpretação de projetos em PDF
-extração de informações de documentos
-leitura de planilhas
-comparação de preços
-identificação de inconsistências
-consulta inteligente a documentos
-auxílio na geração de orçamentos
-Status
+A interface será responsável pela interação com módulos como:
 
-Projeto em desenvolvimento.
+- dashboard;
+- clientes;
+- orçamentos;
+- materiais;
+- contratos;
+- CRM;
+- produção;
+- cronograma;
+- documentos;
+- assistente de IA.
 
-Backend
+> 🚧 O frontend ainda será iniciado.
 
-API inicial em FastAPI já disponível com:
+---
 
+## 🧩 Domínios da plataforma
+
+A arquitetura está sendo preparada para contemplar diferentes áreas do negócio.
+
+### 👥 Clientes
+
+Cadastro e gerenciamento das informações dos clientes e profissionais relacionados aos projetos.
+
+### 📐 Ambientes
+
+Organização dos projetos por ambientes, como cozinha, dormitórios, banheiros, sala, área gourmet e outros.
+
+### 🧮 Orçamentos
+
+Elaboração de orçamentos considerando:
+
+- ambientes;
+- categorias;
+- itens;
+- dimensões;
+- materiais;
+- quantidades;
+- regras de cálculo;
+- descontos;
+- acréscimos;
+- RT.
+
+### 🪚 Materiais e catálogo
+
+Gerenciamento de:
+
+- materiais;
+- categorias;
+- produtos;
+- preços;
+- fornecedores;
+- histórico de alterações.
+
+### 📄 Contratos
+
+Geração e gerenciamento dos contratos relacionados aos projetos aprovados.
+
+### 📊 CRM
+
+Acompanhamento do processo comercial por meio de etapas de negociação.
+
+Exemplo:
+
+```text
+Novo lead
+   ↓
+Negociação
+   ↓
+Proposta enviada
+   ↓
+Fechamento
+```
+
+### 🏭 Produção
+
+Acompanhamento do projeto após o fechamento comercial.
+
+Fluxo inicialmente planejado:
+
+```text
+Projeto pronto
+   ↓
+Material comprado
+   ↓
+Material cortado
+   ↓
+Marcenaria pronta
+   ↓
+Entregue
+   ↓
+Montando
+   ↓
+Finalizado
+```
+
+### 📅 Cronograma
+
+Controle de eventos relacionados a:
+
+- medição;
+- aprovação;
+- produção;
+- entrega;
+- montagem;
+- assistência técnica.
+
+---
+
+## 🤖 Inteligência Artificial
+
+A IA será incorporada como **recurso de apoio aos processos da marcenaria**, e não apenas como um chatbot isolado.
+
+Entre os recursos planejados estão:
+
+### Análise de documentos
+
+Processamento de:
+
+- contratos;
+- projetos;
+- especificações;
+- tabelas de preços;
+- documentos PDF.
+
+### Planilhas
+
+Importação e análise de arquivos contendo informações como:
+
+- materiais;
+- produtos;
+- categorias;
+- preços;
+- ambientes.
+
+### Assistente contextual
+
+Consulta em linguagem natural às informações disponíveis na plataforma.
+
+Exemplos de futuras consultas:
+
+```text
+"Quais ambientes fazem parte deste projeto?"
+
+"Quais materiais tiveram alteração de preço?"
+
+"Qual é o prazo previsto para este cliente?"
+
+"Compare o orçamento atual com a versão anterior."
+```
+
+### RAG
+
+A arquitetura futura prevê **Retrieval-Augmented Generation (RAG)** para permitir que modelos de linguagem utilizem documentos e informações pertencentes à própria marcenaria como contexto.
+
+---
+
+## 🚀 Executando o backend
+
+### Pré-requisitos
+
+- Python 3.13+
+- uv
+
+Clone o projeto:
+
+```bash
+git clone https://github.com/andersonfdom/modunexa.git
+```
+
+Entre no diretório da API:
+
+```bash
+cd modunexa/backend/modunexa-api
+```
+
+Instale/sincronize as dependências:
+
+```bash
+uv sync
+```
+
+Execute a aplicação:
+
+```bash
+uv run uvicorn src.modunexa.main:app --reload --port 8001
+```
+
+A API estará disponível em:
+
+```text
+http://127.0.0.1:8001
+```
+
+---
+
+## ❤️ Health Check
+
+Para verificar se a API está disponível:
+
+```http
 GET /health
+```
 
-Documentação Swagger:
+Resposta atual:
 
+```json
+{
+  "status": "ok"
+}
+```
+
+---
+
+## 📚 Documentação da API
+
+O FastAPI gera automaticamente a especificação OpenAPI e uma interface Swagger.
+
+Com a aplicação em execução:
+
+**Swagger UI**
+
+```text
 http://127.0.0.1:8001/docs
-Objetivo técnico
+```
 
-Este projeto também tem como objetivo demonstrar conhecimentos de engenharia de software e desenvolvimento full stack utilizando tecnologias modernas.
+**OpenAPI JSON**
 
-Entre os conceitos aplicados estarão:
+```text
+http://127.0.0.1:8001/openapi.json
+```
 
-APIs REST
-arquitetura modular
-Clean Architecture
-Domain-Driven Design
-SOLID
-type hints
-validação de dados
-banco de dados relacional
-migrations
-testes automatizados
-autenticação e autorização
-Docker
-CI/CD
-integração frontend/backend
-processamento assíncrono
-integração com modelos de IA
-embeddings
-RAG
-Autor
+---
 
-Anderson Fernando Domingos
+## 🗺️ Roadmap
 
+### Fundação
 
-Agora confira seu `.gitignore` da **raiz**. Como teremos Python e React no mesmo repositório, ele deve proteger os dois lados. Pode substituir por:
+- [x] Estrutura inicial do monorepo
+- [x] Configuração do Python 3.13
+- [x] Gerenciamento de dependências com uv
+- [x] API inicial com FastAPI
+- [x] Health Check
+- [x] Swagger / OpenAPI
+- [ ] Configuração por variáveis de ambiente
 
-```gitignore
-# =========================
-# Python
-# =========================
+### Backend
 
-.venv/
-venv/
-__pycache__/
-*.py[cod]
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.coverage
-htmlcov/
+- [ ] PostgreSQL
+- [ ] SQLAlchemy 2
+- [ ] Alembic
+- [ ] Autenticação e autorização
+- [ ] Gestão de marcenarias
+- [ ] Gestão de usuários
+- [ ] Gestão de clientes
+- [ ] Ambientes
+- [ ] Catálogo e materiais
+- [ ] Motor de orçamento
+- [ ] Contratos
+- [ ] CRM
+- [ ] Produção
+- [ ] Cronograma
 
-# Environment variables
-.env
-.env.*
-!.env.example
+### Documentos e IA
 
-# =========================
-# Node / React
-# =========================
+- [ ] Upload de arquivos
+- [ ] Importação de planilhas
+- [ ] Processamento de PDFs
+- [ ] Integração com LLM
+- [ ] Embeddings
+- [ ] Busca semântica
+- [ ] RAG
+- [ ] Assistente contextual
 
-node_modules/
-dist/
-build/
-coverage/
-*.local
+### Qualidade e DevOps
 
-# =========================
-# IDEs
-# =========================
+- [ ] Testes unitários
+- [ ] Testes de integração
+- [ ] Ruff
+- [ ] Mypy
+- [ ] Docker
+- [ ] CI/CD com GitHub Actions
 
-.idea/
-.vscode/
+### Frontend
 
-# =========================
-# OS
-# =========================
+- [ ] Estrutura inicial React
+- [ ] Integração com API
+- [ ] Autenticação
+- [ ] Dashboard
+- [ ] Interfaces dos módulos de negócio
 
-.DS_Store
-Thumbs.db
+---
 
-# =========================
-# Logs
-# =========================
+## 🧠 Conceitos explorados
 
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+Durante o desenvolvimento serão estudados e aplicados, quando adequados:
+
+- REST;
+- OpenAPI;
+- arquitetura modular;
+- separação de responsabilidades;
+- princípios SOLID;
+- Domain-Driven Design;
+- Clean Architecture;
+- Repository Pattern;
+- Dependency Injection;
+- type hints;
+- programação assíncrona;
+- migrations;
+- testes automatizados;
+- autenticação e autorização;
+- observabilidade;
+- containers;
+- CI/CD;
+- processamento de documentos;
+- integração com LLMs;
+- embeddings;
+- busca vetorial;
+- RAG.
+
+---
+
+## 📈 Status atual
+
+**Versão:** `0.1.0`
+
+**Fase:** Fundação do backend.
+
+Atualmente, a API FastAPI está configurada e executando com sucesso, incluindo Health Check, OpenAPI e Swagger UI.
+
+O próximo marco do projeto é estruturar a configuração da aplicação e iniciar a camada de persistência.
+
+---
+
+## 👨‍💻 Autor
+
+**Anderson Fernando Domingos**
+
+Projeto desenvolvido para estudo, evolução profissional e aplicação prática de engenharia de software, desenvolvimento full stack e Inteligência Artificial.
